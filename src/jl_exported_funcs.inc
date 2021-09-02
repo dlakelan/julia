@@ -1,3 +1,5 @@
+// This file is a part of Julia. License is MIT: https://julialang.org/license
+
 #define JL_EXPORTED_FUNCS(XX) \
     XX(jl_active_task_stack) \
     XX(jl_add_optimization_passes) \

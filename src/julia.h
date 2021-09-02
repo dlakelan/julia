@@ -3,6 +3,33 @@
 #ifndef JULIA_H
 #define JULIA_H
 
+#ifdef LIBRARY_EXPORTS
+#include "jl_internal_funcs.inc"
+// unlist some re-exports that we will already redefine as macros
+#undef jl_cpu_pause
+#undef jl_cpu_wake
+#undef jl_egal
+#undef jl_get_fieldtypes
+#undef jl_gc_safepoint
+#undef jl_gc_unsafe_enter
+#undef jl_gc_unsafe_leave
+#undef jl_gc_safe_enter
+#undef jl_gc_safe_leave
+#undef jl_astaggedvalue
+#undef jl_valueof
+#undef jl_svec_len
+#undef jl_typeof
+#undef jl_array_data_owner
+#undef jl_symbol_name
+#undef jl_gc_alloc
+#undef jl_svec
+// and a few more special ones
+#undef jl_strtod_c
+#undef jl_strtof_c
+#undef jl_id_start_char
+#undef jl_id_char
+#endif
+
 //** Configuration options that affect the Julia ABI **//
 // if this is not defined, only individual dimension sizes are
 // stored and not total length, to save space.
